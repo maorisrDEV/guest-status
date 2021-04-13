@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.item {
+  min-width: 33.3%;
+  text-align: right;
+  flex:1;
+}

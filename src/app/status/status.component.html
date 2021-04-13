@@ -1,0 +1,71 @@
+<div style="height: 10%">
+  <h1 style="text-align: center">
+    <b>
+      סטטוס הגעה לחתונה
+    </b>
+  </h1>
+<!--  <button mat-flat-button color="accent"-->
+<!--          (click)="downloadCsv()"-->
+<!--          style="position: absolute; top: 10px; left: 10px;">-->
+<!--    CSV הורד כקובץ-->
+<!--  </button>-->
+</div>
+
+
+<ag-grid-angular
+  style="width: 100%; height: 65%;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  (gridReady)="onGridReady($event)"
+  [getContextMenuItems]="getContextMenuItems"
+  enableRtl="true"
+>
+</ag-grid-angular>
+
+<div style="background-color: gainsboro; height: 25%;">
+  <div dir="rtl" style="text-align: center; margin-bottom: 1rem;">
+    <b>
+      סטטיסטיקות אישורי הגעה נכון ל-{{getCurrentTime()}}
+    </b>
+  </div>
+
+  <div dir="rtl" class="container">
+    <div class="item">
+      <u> סה"כ רשומות:</u>
+      {{statistics?.amountOfDocs}}
+    </div>
+    <div class="item">
+      <u>כמות רשומות שעדכנו סטטוס:</u>
+      {{statistics?.respondedDocs}}
+    </div>
+    <div class="item">
+      <u> כמות רשומות שלא עדכנו סטטוס:</u>
+      {{statistics?.notRespondedDocs}}
+    </div>
+    <div class="item">
+      <u> סה"כ אורחים מוזמנים:</u>
+      {{statistics?.amountOfInvitedGuests}}
+    </div>
+    <div class="item">
+      <u> אורחים שעדכנו סטטוס:</u>
+      {{statistics?.respondedGuests}}
+    </div>
+    <div class="item">
+      <u> אורחים שטרם עדכנו סטטוס:</u>
+      {{statistics?.notRespondedGuests}}
+    </div>
+    <div class="item">
+      <b><u>אורחים שסימנו שמגיעים בפועל:</u></b>
+      {{statistics?.arrivingGuests}}
+    </div>
+    <div class="item">
+      <u>כמות מוזמנים מקורית של המגיעים:</u>
+      {{statistics?.arrivingInvitedGuests}}
+    </div>
+    <div class="item">
+      <b><u>אורחים שסימנו שלא מגיעים:</u></b>
+      {{statistics?.notArrivingGuests}}
+    </div>
+  </div>
+</div>
